@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="editText">0</string>
+    <string name="empty" />
+    <string name="c">C</string>
+    <string name="u232b">⌫</string>
+    <string name="emp" />
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="u2212">−</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="u002b">+</string>
+    <string name="_0">0</string>
+    <string name="_00">00</string>
+    <string name="dot">.</string>
+    <string name="equl">=</string>
+    <string name="_9">9</string>
+    <string name="_8">8</string>
+    <string name="u00f7">÷</string>
+</resources>

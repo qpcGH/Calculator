@@ -144,6 +144,8 @@ class MainActivity : AppCompatActivity() {
             // currentText = x.toString()
             //  (temp+currentText).also { resultTV.text = it }
             //  resultTV.text =  temp+currentText
+
+
            if (opSign.toString().isEmpty())
            {
                currentText = currentText.toString().dropLast(1)
@@ -151,8 +153,15 @@ class MainActivity : AppCompatActivity() {
            }
             else
            {
-               currentText2 = currentText2.toString().dropLast(1)
-               resultTV.text =  currentText+ opSign+ currentText2.toString()
+               if( currentText2.toString().isEmpty())
+               {
+                   opSign=""
+                   resultTV.text =  currentText+ opSign+ currentText2.toString()
+               }
+             else{
+                   currentText2 = currentText2.toString().dropLast(1)
+                   resultTV.text =  currentText+ opSign+ currentText2.toString()
+               }
            }
 
 
@@ -163,28 +172,37 @@ class MainActivity : AppCompatActivity() {
                 //so App doesn't crash when it cant compute empty values
                 Toast.makeText(this, "Enter a value", Toast.LENGTH_SHORT).show()
                 currentText = ""
+
             }
             else
             {
-                val1 = currentText.toString().toDouble()
-                val2 = currentText2.toString().toDouble()
-                var result = 0.00
-                if (opSign == "+") {
-                    result = val1 + val2
-                } else if (opSign == "-") {
-                    result = val1 - val2
-                } else if (opSign == "/") {
-                    result = val1 / val2
-                } else if (opSign == "*") {
-                    result = val1 * val2
-                } else {
-                    //so whatever value is entered gets shown in result tab. if only one value was added val2 remains 0
-                    result = val1 + val2
-                }
 
-                resultTV2.text = "= ${result}"
-                currentText = ""
-                temp = ""
+               if (currentText.isNotEmpty() && currentText2.isNotEmpty())
+               {
+                   val1 = currentText.toString().toDouble()
+                   val2 = currentText2.toString().toDouble()
+                   var result = 0.00
+                   if (opSign == "+") {
+                       result = val1 + val2
+                   } else if (opSign == "-") {
+                       result = val1 - val2
+                   } else if (opSign == "/") {
+                       result = val1 / val2
+                   } else if (opSign == "*") {
+                       result = val1 * val2
+                   } else {
+                       //so whatever value is entered gets shown in result tab. if only one value was added val2 remains 0
+                       result = val1 + val2
+                   }
+
+                   resultTV2.text = "= ${result}"
+                   currentText = ""
+                   currentText2=""
+                   temp = ""
+               }
+                else   {
+                   Toast.makeText(this, "Incomplete Expression cant be calculated", Toast.LENGTH_SHORT).show()
+               }
             }
         }
 
